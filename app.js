@@ -18,6 +18,14 @@ app.use('/api/v1', productRouter);
 
 app.use('/api/v2', productRouterv2);
 
+app.get('/', (req, res) => {
+    res.status(200);
+    res.send(`
+    <h2>Selamat datang di tugas REST API EXPRESS MYSQL</h2>
+    <h2>Bashofi</h2>
+    `);
+});
+
 app.use((req, res, next) => {
     res.status(404);
     res.send(`
