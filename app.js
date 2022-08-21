@@ -1,6 +1,9 @@
+require('./config/mongoose');
 const express = require('express');
-const productRouter = require('./app/product/routes');
-const productRouterv2 = require('./app/product_v2/routes');
+// const productRouter = require('./app/product/routes');
+// const productRouterv2 = require('./app/product_v2/routes');
+const productRouterv3 = require('./app/product_v3/routes');
+const productRouterv4 = require('./app/product_v4/routes');
 const app = express();
 const path = require('path')
 const logger = require('morgan')
@@ -14,9 +17,13 @@ app.use(express.json());
 
 app.use('/public', express.static(path.join(__dirname, 'uploads')));
 
-app.use('/api/v1', productRouter);
+// app.use('/api/v1', productRouter);
 
-app.use('/api/v2', productRouterv2);
+// app.use('/api/v2', productRouterv2);
+
+app.use('/api/v3', productRouterv3);
+
+app.use('/api/v4', productRouterv4);
 
 app.get('/', (req, res) => {
     res.status(200);
